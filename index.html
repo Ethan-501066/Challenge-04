@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- input section -->
+        <div id="setup" class="screen">
+            <h1>Temporizador</h1>
+            <div class="inputs">
+                <label>
+                    Minutos
+                    <input id="minutes" type="number" min="0" value="0" />
+                </label>
+                <label>
+                    Segundos
+                    <input id="seconds" type="number" min="0" max="59" value="0" />
+                </label>
+            </div>
+            <button id="startBtn" class="primary large">START</button>
+        </div>
+
+        <!-- running section -->
+        <div id="running" class="screen hidden">
+            <div class="ring-container">
+                <svg id="ring" width="300" height="300" viewBox="0 0 300 300">
+                    <circle class="bg" cx="150" cy="150" r="140" fill="none" stroke-width="20" />
+                    <circle id="progressCircle" class="progress" cx="150" cy="150" r="140" fill="none" stroke-width="20" stroke-linecap="round" />
+                </svg>
+                <div id="display" class="time-display">00:00</div>
+            </div>
+            <div class="controls">
+                <button id="pauseBtn" class="secondary">PAUSE</button>
+                <button id="resetBtn" class="secondary">RESET</button>
+            </div>
+        </div>
+
+        <!-- done section -->
+        <div id="done" class="screen hidden">
+            <div class="ring-container">
+                <svg id="ringDone" width="300" height="300" viewBox="0 0 300 300">
+                    <circle class="bg" cx="150" cy="150" r="140" fill="none" stroke-width="20" />
+                    <circle id="progressCircleDone" class="progress" cx="150" cy="150" r="140" fill="none" stroke-width="20" stroke-linecap="round" />
+                </svg>
+                <div id="displayDone" class="time-display">DONE</div>
+            </div>
+            <button id="doneResetBtn" class="primary large">RESET</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

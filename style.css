@@ -1,0 +1,127 @@
+/* simple reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body, html {
+    height: 100%;
+    font-family: system-ui, sans-serif;
+    background: #000000; /* pure black */
+    color: #fff;
+    margin:0;
+    padding:0;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.screen {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+.hidden {
+    display: none;
+}
+
+.ring-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 2rem;
+}
+.ring-container svg {
+    transform: rotate(-90deg);
+}
+.bg {
+    stroke: rgba(0,255,255,0.2);
+}
+.progress {
+    stroke: #00ffff;
+    stroke-dasharray: 879; /* 2πr where r=140 (~879) */
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.2s linear;
+}
+
+/* glow animation for DONE state */
+.done-glow {
+    animation: glow-pulse 1s ease-out;
+}
+@keyframes glow-pulse {
+    0% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff; }
+    50% { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff; }
+    100% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff; }
+}
+h1 {
+    margin-bottom: 2rem;
+}
+.inputs label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #00ffff;
+}
+.inputs input {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin-top: 0.3rem;
+    background: #111;
+    color: #00ffff;
+    border: 1px solid #00ffff;
+}
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background: none;
+    position: relative;
+}
+button::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #00ffff;
+    opacity: 0;
+    transition: opacity .3s;
+}
+button:hover::after, button:focus::after {
+    opacity: 0.5;
+}
+.large {
+    font-size: 1.4rem;
+    padding: 1.2rem 2.4rem;
+}
+.primary {
+    background-color: #00ffff;
+    color: #000;
+}
+.secondary {
+    background-color: rgba(0,255,255,0.1);
+    color: #00ffff;
+    margin: 0 0.5rem;
+}
+.time-display {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    font-family: 'Courier New', monospace;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.controls {
+    display: flex;
+    justify-content: center;
+}
